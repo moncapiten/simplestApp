@@ -127,13 +127,6 @@
             display: block;
         }
         
-        .pdf-viewer iframe {
-            width: 100%;
-            height: 70vh;
-            border: none;
-            border-radius: 10px;
-        }
-        
         .back-btn {
             background: #2196F3;
             color: white;
@@ -148,6 +141,22 @@
         
         .back-btn:hover {
             background: #1976D2;
+        }
+        
+        .pdf-container {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .pdf-frame {
+            width: 100%;
+            height: 70vh;
+            border: none;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
         
         .install-prompt {
@@ -211,12 +220,15 @@
                 <div class="pdf-card" onclick="openPDF('sample1.pdf', 'Guide Chapter 1')">
                     <h3>📖 Chapter 1: Getting Started</h3>
                     <p>Introduction and basic concepts. Learn the fundamentals with step-by-step instructions.</p>
-                    
+                    <div class="external-links">
+                        <a href="https://en.wikipedia.org/wiki/Tutorial" target="_blank" class="external-link wikipedia-link">📚 Wikipedia: Tutorials</a>
+                        <a href="https://maps.google.com/?q=library+near+me" target="_blank" class="external-link maps-link">📍 Find Libraries</a>
+                    </div>
                 </div>
                 
-                <div class="pdf-card" onclick="openPDF('long abstract v1.pdf', 'Guide Chapter 2')">
+                <div class="pdf-card" onclick="openPDF('sample2.pdf', 'Guide Chapter 2')">
                     <h3>🔧 Chapter 2: Advanced Topics</h3>
-                    <p>MARIO MARIO MARIO MARIO MARIO MARIO MARIO MARIO</p>
+                    <p>Deep dive into complex subjects with practical examples and real-world applications.</p>
                     <div class="external-links">
                         <a href="https://en.wikipedia.org/wiki/Knowledge" target="_blank" class="external-link wikipedia-link">📚 Wikipedia: Knowledge</a>
                         <a href="https://maps.google.com/?q=university+near+me" target="_blank" class="external-link maps-link">📍 Find Universities</a>
@@ -237,71 +249,104 @@
         <div id="pdfViewer" class="pdf-viewer">
             <button class="back-btn" onclick="closePDF()">← Back to Guide</button>
             <h2 id="pdfTitle">PDF Title</h2>
-            <iframe id="pdfFrame" src=""></iframe>
+            <div class="pdf-container">
+                <iframe id="pdfFrame" class="pdf-frame" src=""></iframe>
+            </div>
         </div>
     </div>
 
     <script>
+        console.log('Script starting...');
+        
         // PWA Installation
         let deferredPrompt;
         const installPrompt = document.getElementById('installPrompt');
         const installBtn = document.getElementById('installBtn');
 
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            installPrompt.style.display = 'block';
-        });
+        if (installPrompt && installBtn) {
+            window.addEventListener('beforeinstallprompt', (e) => {
+                e.preventDefault();
+                deferredPrompt = e;
+                installPrompt.style.display = 'block';
+            });
 
-        installBtn.addEventListener('click', async () => {
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
-                const { outcome } = await deferredPrompt.userChoice;
-                deferredPrompt = null;
-                installPrompt.style.display = 'none';
-            }
-        });
+            installBtn.addEventListener('click', async () => {
+                if (deferredPrompt) {
+                    deferredPrompt.prompt();
+                    const { outcome } = await deferredPrompt.userChoice;
+                    deferredPrompt = null;
+                    installPrompt.style.display = 'none';
+                }
+            });
+        }
 
-        // PDF Management
+        // PDF Management - COMPLETELY CLEAN VERSION
         function openPDF(filename, title) {
-            document.getElementById('homeView').style.display = 'none';
-            document.getElementById('pdfViewer').classList.add('active');
-            document.getElementById('pdfTitle').textContent = title;
+            console.log('openPDF called with:', filename, title);
             
-            // For demo purposes, we'll show a placeholder
-            // Replace 'pdfs/' + filename with your actual PDF path
-            // document.getElementById('pdfFrame').src = `data:text/html,<div style="padding:40px;text-align:center;font-family:Arial;"><h2>PDF: ${title}</h2><p>Your PDF "${filename}" would load here.</p><p style="margin-top:30px;color:#666;">Replace this placeholder with: pdfs/${filename}</p><div style="margin-top:40px;padding:20px;background:#f0f0f0;border-radius:10px;"><h3>Sample PDF Content</h3><p>This is where your actual PDF content would be displayed. The PDF viewer will show the full document with zoom, scroll, and navigation capabilities.</p></div></div>`;
-
-            // Load the actual PDF
+            // Get all elements
+            const homeView = document.getElementById('homeView');
+            const pdfViewer = document.getElementById('pdfViewer');
+            const pdfTitle = document.getElementById('pdfTitle');
+            const pdfFrame = document.getElementById('pdfFrame');
+            
+            console.log('Elements check:', {
+                homeView: homeView ? 'found' : 'NOT FOUND',
+                pdfViewer: pdfViewer ? 'found' : 'NOT FOUND',
+                pdfTitle: pdfTitle ? 'found' : 'NOT FOUND',
+                pdfFrame: pdfFrame ? 'found' : 'NOT FOUND'
+            });
+            
+            // Verify all elements exist
+            if (!homeView || !pdfViewer || !pdfTitle || !pdfFrame) {
+                console.error('ERROR: Missing required elements!');
+                alert('Error: Page elements not found. Please refresh the page.');
+                return;
+            }
+            
+            // Hide home view and show PDF viewer
+            homeView.style.display = 'none';
+            pdfViewer.classList.add('active');
+            pdfTitle.textContent = title;
+            
+            // Set PDF path
             const pdfPath = 'pdfs/' + filename;
-            document.getElementById('pdfFrame').src = pdfPath;
+            console.log('Loading PDF from:', pdfPath);
+            
+            // Load PDF in iframe
+            pdfFrame.src = pdfPath;
+            
+            console.log('PDF should be loading now...');
         }
 
         function closePDF() {
-            document.getElementById('homeView').style.display = 'block';
-            document.getElementById('pdfViewer').classList.remove('active');
-            document.getElementById('pdfFrame').src = '';
+            console.log('closePDF called');
+            
+            const homeView = document.getElementById('homeView');
+            const pdfViewer = document.getElementById('pdfViewer');
+            const pdfFrame = document.getElementById('pdfFrame');
+            
+            if (homeView) homeView.style.display = 'block';
+            if (pdfViewer) pdfViewer.classList.remove('active');
+            if (pdfFrame) pdfFrame.src = '';
+            
+            console.log('Closed PDF viewer');
         }
 
-        // Register Service Worker
+        // Service Worker Registration
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('sw.js')
                     .then((registration) => {
-                        console.log('SW registered: ', registration);
+                        console.log('Service Worker registered:', registration);
                     })
                     .catch((registrationError) => {
-                        console.log('SW registration failed: ', registrationError);
+                        console.log('Service Worker registration failed:', registrationError);
                     });
             });
         }
 
-        // Handle back button
-        window.addEventListener('popstate', (e) => {
-            if (document.getElementById('pdfViewer').classList.contains('active')) {
-                closePDF();
-            }
-        });
+        console.log('Script loaded successfully');
     </script>
 </body>
 </html>
