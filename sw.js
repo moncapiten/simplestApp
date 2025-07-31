@@ -2,6 +2,8 @@ const CACHE_NAME = 'pdf-guide-v1';
 const urlsToCache = [
   '/',
   '/index.html',
+  '/styles.css',
+  '/script.js',
   '/manifest.json',
   '/icons/icon-192.png',
   '/icons/icon-512.png',
