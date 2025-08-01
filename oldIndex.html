@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My PDF Guide</title>
+    <meta name="description" content="Offline PDF guide with external links">
+    <meta name="theme-color" content="#2196F3">
+    
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="PDF Guide">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="install-prompt" id="installPrompt">
+            <h3>📱 Install this app for offline access!</h3>
+            <p>Add to your home screen to use without internet</p>
+            <button class="install-btn" id="installBtn">Install App</button>
+        </div>
+        
+        <div class="header">
+            <h1>🛳️ Simplest Travel App 🚀</h1>
+            <p>Offline container for travel resources</p>
+        </div>
+        
+        <div id="homeView">
+            <div class="pdf-grid">
+                <div class="pdf-card" onclick="openPDF('sample1.pdf', 'Guide Chapter 1')">
+                    <h3> 🇪🇸 Valencia </h3>
+                    <p> Travel documents for the Valencia tour! </p>
+                    <div class="external-links">
+                        <a href="https://en.wikipedia.org/wiki/Tutorial" target="_blank" class="external-link wikipedia-link">📚 Wikipedia: Tutorials</a>
+                        <a href="https://maps.google.com/?q=library+near+me" target="_blank" class="external-link maps-link">📍 Find Libraries</a>
+                    </div>
+                </div>
+                
+                <div class="pdf-card" onclick="openPDF('long abstract v1.pdf', 'Guide Chapter 2')">
+                    <h3>🔧 Chapter 2: Advanced Topics</h3>
+                    <p>MARIO MARIO MARIO MAIO</p>
+                    <div class="external-links">
+                        <a href="https://en.wikipedia.org/wiki/Knowledge" target="_blank" class="external-link wikipedia-link">📚 Wikipedia: Knowledge</a>
+                        <a href="https://maps.google.com/?q=university+near+me" target="_blank" class="external-link maps-link">📍 Find Universities</a>
+                    </div>
+                </div>
+                
+                <div class="pdf-card" onclick="openPDF('sample3.pdf', 'Guide Chapter 3')">
+                    <h3>🎯 Chapter 3: Best Practices</h3>
+                    <p>Expert tips, tricks, and recommended approaches for optimal results.</p>
+                    <div class="external-links">
+                        <a href="https://en.wikipedia.org/wiki/Best_practice" target="_blank" class="external-link wikipedia-link">📚 Wikipedia: Best Practices</a>
+                        <a href="https://maps.google.com/?q=training+center+near+me" target="_blank" class="external-link maps-link">📍 Find Training Centers</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="pdfViewer" class="pdf-viewer">
+            <button class="back-btn" onclick="closePDF()">← Back to Guide</button>
+            <h2 id="pdfTitle">PDF Title</h2>
+            <div class="pdf-container">
+                <iframe id="pdfFrame" class="pdf-frame" src=""></iframe>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
