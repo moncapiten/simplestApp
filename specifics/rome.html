@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Offline Travel Itinerary Repository</title>
-    <meta name="description" content="Offline Travel Itinerary Repository">
+    <title>My PDF Guide</title>
+    <meta name="description" content="Offline PDF guide with external links">
     <meta name="theme-color" content="#2196F3">
     
     <!-- PWA Meta Tags -->
@@ -12,16 +12,16 @@
     <link rel="apple-touch-icon" href="icons/icon-192.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Offline Travel Itinerary Repository">
-
+    <meta name="apple-mobile-web-app-title" content="PDF Guide">
+    
     <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 
-    <!-- Main JavaScript 
-    <script src="script.js" defer></script> -->
+    <!-- Main JavaScript -->
+    <script src="../script.js" defer></script>
 
-    <!-- PDF.js for mobile compatibility 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script> -->
+    <!-- PDF.js for mobile compatibility -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     
 </head>
 <body>
@@ -39,9 +39,25 @@
         
         <div id="homeView">
             <div class="pdf-grid">
+                <div class="pdf-card" onclick="openPDF('sample1.pdf', 'Guide Chapter 1')">
+                    <h3>📖 Chapter 1: Getting Started</h3>
+                    <p>Introduction and basic concepts. Learn the fundamentals with step-by-step instructions.</p>
+                    <div class="external-links">
+                        <a href="https://en.wikipedia.org/wiki/Tutorial" target="_blank" class="external-link wikipedia-link">📚 Wikipedia: Tutorials</a>
+                        <a href="https://maps.google.com/?q=library+near+me" target="_blank" class="external-link maps-link">📍 Find Libraries</a>
+                    </div>
+                </div>
+                
+                <div class="pdf-card" onclick="openPDF('long abstract v1.pdf', 'Guide Chapter 2')">
+                    <h3>🔧 Chapter 2: Advanced Topics</h3>
+                    <p>MARIO MARIO MARIO MARIO MAIRO</p>
+                    <div class="external-links">
+                        <a href="https://en.wikipedia.org/wiki/Knowledge" target="_blank" class="external-link wikipedia-link">📚 Wikipedia: Knowledge</a>
+                        <a href="https://maps.google.com/?q=university+near+me" target="_blank" class="external-link maps-link">📍 Find Universities</a>
+                    </div>
+                </div>
 
-
-                <a href="specifics/rome.html" target="_blank">
+                <a href="https://www.wikipedia.org" target="_blank">
                     <div class="pdf-card" >
                         <h3> 🇮🇹 Rome </h3>
                         <p> Travel Itinerary for Emma's tour of Rome, 07-2025 </p>
@@ -49,6 +65,14 @@
                 </a>
 
 
+                <div class="pdf-card" >
+                    <h3>🎯 Chapter 3: Best Practices</h3>
+                    <p>Expert tips, tricks, and recommended approaches for optimal results.</p>
+                    <div class="external-links">
+                        <a href="https://en.wikipedia.org/wiki/Best_practice" target="_blank" class="external-link wikipedia-link">📚 Wikipedia: Best Practices</a>
+                        <a href="https://maps.google.com/?q=training+center+near+me" target="_blank" class="external-link maps-link">📍 Find Training Centers</a>
+                    </div>
+                </div>
             </div>
         </div>
         
