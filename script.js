@@ -204,7 +204,7 @@ function closePDF() {
     currentPage = 1;
     currentScale = 1.2;
 }
-
+/*
 // Service Worker Registration
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
@@ -215,6 +215,17 @@ if ('serviceWorker' in navigator) {
             .catch((registrationError) => {
                 console.log('Service Worker registration failed:', registrationError);
             });
+    });
+}
+*/
+// Add this to your spain.html or script.js
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('../sw.js') // Go up one folder to find sw.js
+    .then((registration) => {
+      console.log('Service Worker registered successfully:', registration);
+    })
+    .catch((error) => {
+      console.log('Service Worker registration failed:', error);
     });
 }
 
