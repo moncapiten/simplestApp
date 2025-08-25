@@ -221,8 +221,8 @@ if ('serviceWorker' in navigator) {
 // Add this to your spain.html or script.js
 if ('serviceWorker' in navigator) {
   // Register from the simplestApp directory
-  navigator.serviceWorker.register('./sw.js', {
-    scope: './' // This makes the SW control everything in /simplestApp/
+  navigator.serviceWorker.register('../sw.js', {
+    scope: '../' // This makes the SW control everything in /simplestApp/
   })
   .then((registration) => {
     console.log('SimplestApp SW: Registration successful', registration);
