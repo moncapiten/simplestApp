@@ -97,6 +97,11 @@ body {
     border-left: 3px solid #4CAF50;
 }
 
+.treccani-link {
+    background: #fff4e5;
+    border-left: 3px solid #584446;
+}
+
 .pdf-viewer {
     display: none;
     background: white;

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My PDF Guide</title>
+    <meta name="description" content="Offline PDF guide with external links">
+    <meta name="theme-color" content="#2196F3">
+    
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="PDF Guide">
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Main JavaScript -->
+    <script src="../script.js" defer></script>
+
+    <!-- PDF.js for mobile compatibility -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="install-prompt" id="installPrompt">
+            <h3>📱 Install this app for offline access!</h3>
+            <p>Add to your home screen to use without internet</p>
+            <button class="install-btn" id="installBtn">Install App</button>
+        </div>
+        
+        <div class="header">
+            <h1>📚 My PDF Guide</h1>
+            <p>Your offline reference with helpful links</p>
+        </div>
+        
+        <div id="homeView">
+            <div class="pdf-grid">
+
+                <div class="pdf-card" onclick="openPDF('spain/itinerary.pdf', 'Yeah, we do not half ass things here')">
+                    <h3>📒 Itinerario </h3>
+                    <p> Itinerario giorno per giorno del viaggio verso il Regno Iberico</p>
+                    <div class="external-links">
+                        <a href="https://www.treccani.it/vocabolario/itinerario" target="_blank" class="external-link wikipedia-link">📚 Treccani: Itinerario</a>
+                        <a href="https://it.wikipedia.org/wiki/Spagna" target="_blank" class="external-link treccani-link">📚 Wikipedia: Spagna</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card" onclick="openPDF('spain/20250826.pdf', '26/08')"> 
+                    <h3>🛬 Prima giornata: Madrid</h3>
+                    <p>Prima giornata della spedizione </p>
+                    <div class="external-links">
+                        <a href="https://it.wikipedia.org/wiki/Madrid" target="_blank" class="external-link wikipedia-link">📚 Wikipedia: Madrid</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card" onclick="openPDF('spain/20250827.pdf', '27/08')">
+                    <h3>⛲ Seconda giornata: sempre Madrid</h3>
+                    <p>Si rimane nel foro, si esplora la Piazza</p>
+                    <div class="external-links">
+                        <a href="https://it.wikipedia.org/wiki/Plaça_Reial" target="_blank" class="external-link wikipedia-link">📚 Wikipedia: Plaça Reial</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card" onclick="openPDF('spain/20250828.pdf', '28/08')">
+                    <h3>👑 Terza giornata: sempre Madrid‽‽</h3>
+                    <p>Non ci siamo ancora mossi(~), oggi tour reale</p>
+                    <div class="external-links">
+                        <a href="https://it.wikipedia.org/wiki/Monarchia_spagnola" target="_blank" class="external-link wikipedia-link">📚 Wikipedia: Monarchia spagnola</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card" onclick="openPDF('spain/20250829.pdf', '29/08')">
+                    <h3>⛪ Quarta giornata: Segovia! (mi sembrava strano...)</h3>
+                    <p>Tutti in tonaca! Giro del Monastero</p>
+                    <div class="external-links">
+                        <a href="https://en.wikipedia.org/wiki/Monastery_of_Santa_María_del_Parral" target="_blank" class="external-link wikipedia-link">📚 Wikipedia: Monastero di Santa Maria del Parral( inglese)</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card" onclick="openPDF('spain/20250830.pdf', '30/08')">
+                    <h3>🎓 Quinta giornata: giro fuori porta a Salamanca</h3>
+                    <p>Università, troppo tempo che non ci andavamo...</p>
+                    <div class="external-links">
+                        <a href="https://it.wikipedia.org/wiki/Università_di_Salamanca" target="_blank" class="external-link wikipedia-link">📚 Wikipedia: Università di Salamanca</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card" onclick="openPDF('spain/20250831.pdf', '31/08')">
+                    <h3>🌉 Sesta giornata: Segovia( again) e l'Adelentado per la notte!</h3>
+                    <p>Perché? Non lo so, ma passare 24 ore in un solo posto non è da noi</p>
+                    <div class="external-links">
+                        <a href="https://it.wikipedia.org/wiki/Acquedotto_di_Segovia" target="_blank" class="external-link wikipedia-link">📚 Wikipedia: Acquedotto di Segovia</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card" onclick="openPDF('spain/20250901.pdf', '01/09')">
+                    <h3>🗡 Sesta giornata: i coltelli ci chiamano!!!</h3>
+                    <p>Il fascino della città imperiale ci cattua 'sì tanto che ci passiamo la notte!</p>
+                    <div class="external-links">
+                        <a href="https://it.wikipedia.org/wiki/Toledo" target="_blank" class="external-link wikipedia-link">📚 Wikipedia: Toledo</a>
+                        <a href="https://it.wikipedia.org/wiki/Toledo_(Ohio)" target="_blank" class="external-link wikipedia-link">📚 Wikipedia: Toledo</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card" onclick="openPDF('spain/20250902.pdf', '02/09')">
+                    <h3>🛫 Settima giornata: wait ma non dovevamo andarcene?</h3>
+                    <p>Nell'ultimo giorno a quanto pare giriamo Toledo, Aranjuez e torniamo addirittura a Madrid, guarda che efficenza</p>
+                    <div class="external-links">
+                        <a href="https://it.wikipedia.org/wiki/Aranjuez" target="_blank" class="external-link wikipedia-link">📚 Wikipedia: Aranjuez</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card" onclick="openPDF('spain/glossary.pdf', 'Cause there\'s no \'done\' like \'overdone\'')">
+                    <h3>📚 Glossario</h3>
+                    <p>Tu pensavi fosse finito, eh?</p>
+                    <div class="external-links">
+                        <a href="https://www.treccani.it/vocabolario/glossario" target="_blank" class="external-link treccani-link">📚 Treccani: Glossario</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <div id="pdfViewer" class="pdf-viewer">
+            <button class="back-btn" onclick="closePDF()">← Back to Guide</button>
+            <h2 id="pdfTitle">PDF Title</h2>
+            <div class="pdf-container">
+                <!-- Desktop: iframe, Mobile: canvas -->
+                <iframe id="pdfFrame" class="pdf-frame" src="" style="display: none;"></iframe>
+                
+                <!-- Mobile PDF viewer -->
+                <div id="pdfCanvasContainer" class="pdf-canvas-container" style="display: none;">
+                    <div class="pdf-controls" id="pdfControls">
+                        <button onclick="previousPage()" id="prevBtn">◀</button>
+                        <span id="pageInfo">Page 1 of 1</span>
+                        <button onclick="nextPage()" id="nextBtn">▶</button>
+                        <button onclick="zoomOut()" id="zoomOutBtn">-</button>
+                        <span id="zoomLevel">100%</span>
+                        <button onclick="zoomIn()" id="zoomInBtn">+</button>
+                    </div>
+                    <canvas id="pdfCanvas" class="pdf-canvas"></canvas>
+                </div>
+                
+                <div id="loadingMessage" class="loading-message" style="display: none;">
+                    <p>Loading PDF...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

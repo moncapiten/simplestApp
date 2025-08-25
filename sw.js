@@ -1,12 +1,26 @@
 const CACHE_NAME = 'pdf-guide-v1';
 const urlsToCache = [
-  '/',
+  
   '/index.html',
   '/styles.css',
   '/script.js',
   '/manifest.json',
+
   '/icons/icon-192.png',
   '/icons/icon-512.png',
+
+  '/specifics/spain.html',
+  '/specifics/pdfs/spain/20250826.pdf',
+  '/specifics/pdfs/spain/20250827.pdf',
+  '/specifics/pdfs/spain/20250828.pdf',
+  '/specifics/pdfs/spain/20250829.pdf',
+  '/specifics/pdfs/spain/20250830.pdf',
+  '/specifics/pdfs/spain/20250831.pdf',
+  '/specifics/pdfs/spain/20250901.pdf',
+  '/specifics/pdfs/spain/20250902.pdf',
+  '/specifics/pdfs/spain/glossary.pdf',
+  '/specifics/pdfs/spain/itinerary.pdf',
+
   // Add your PDF files here
   '/pdfs/sample1.pdf',
   '/pdfs/long abstract v1.pdf',
