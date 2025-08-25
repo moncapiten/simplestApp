@@ -1,30 +1,30 @@
 const CACHE_NAME = 'pdf-guide-v1';
 const urlsToCache = [
   
-  '/index.html',
-  '/styles.css',
-  '/script.js',
-  '/manifest.json',
+  'simplestApp/index.html',
+  'simplestApp/styles.css',
+  'simplestApp/script.js',
+  'simplestApp/manifest.json',
 
-  '/icons/icon-192.png',
-  '/icons/icon-512.png',
+  'simplestApp/icons/icon-192.png',
+  'simplestApp/icons/icon-512.png',
 
-  '/specifics/spain.html',
-  '/specifics/pdfs/spain/20250826.pdf',
-  '/specifics/pdfs/spain/20250827.pdf',
-  '/specifics/pdfs/spain/20250828.pdf',
-  '/specifics/pdfs/spain/20250829.pdf',
-  '/specifics/pdfs/spain/20250830.pdf',
-  '/specifics/pdfs/spain/20250831.pdf',
-  '/specifics/pdfs/spain/20250901.pdf',
-  '/specifics/pdfs/spain/20250902.pdf',
-  '/specifics/pdfs/spain/glossary.pdf',
-  '/specifics/pdfs/spain/itinerary.pdf',
+  'simplestApp/specifics/spain.html',
+  'simplestApp/specifics/pdfs/spain/20250826.pdf',
+  'simplestApp/specifics/pdfs/spain/20250827.pdf',
+  'simplestApp/specifics/pdfs/spain/20250828.pdf',
+  'simplestApp/specifics/pdfs/spain/20250829.pdf',
+  'simplestApp/specifics/pdfs/spain/20250830.pdf',
+  'simplestApp/specifics/pdfs/spain/20250831.pdf',
+  'simplestApp/specifics/pdfs/spain/20250901.pdf',
+  'simplestApp/specifics/pdfs/spain/20250902.pdf',
+  'simplestApp/specifics/pdfs/spain/glossary.pdf',
+  'simplestApp/specifics/pdfs/spain/itinerary.pdf',
 
   // Add your PDF files here
-  '/pdfs/sample1.pdf',
-  '/pdfs/long abstract v1.pdf',
-  '/pdfs/Documento (5).pdf'
+  'simplestApp/pdfs/sample1.pdf',
+  'simplestApp/pdfs/long abstract v1.pdf',
+  'simplestApp/pdfs/Documento (5).pdf'
   // Add more PDFs as needed
 ];
 
