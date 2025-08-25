@@ -220,13 +220,16 @@ if ('serviceWorker' in navigator) {
 */
 // Add this to your spain.html or script.js
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('../sw.js') // Go up one folder to find sw.js
-    .then((registration) => {
-      console.log('Service Worker registered successfully:', registration);
-    })
-    .catch((error) => {
-      console.log('Service Worker registration failed:', error);
-    });
+  // Register from the simplestApp directory
+  navigator.serviceWorker.register('./sw.js', {
+    scope: './' // This makes the SW control everything in /simplestApp/
+  })
+  .then((registration) => {
+    console.log('SimplestApp SW: Registration successful', registration);
+  })
+  .catch((error) => {
+    console.error('SimplestApp SW: Registration failed', error);
+  });
 }
 
 console.log('Script loaded successfully');
